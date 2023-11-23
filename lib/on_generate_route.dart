@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto_c2/features/AuthUsers/Presentation/pages/artist_registration_page.dart';
 import 'package:proyecto_c2/features/AuthUsers/Presentation/pages/forgot_page.dart';
 import 'package:proyecto_c2/features/AuthUsers/Presentation/pages/login_page.dart';
 import 'package:proyecto_c2/features/AuthUsers/Presentation/pages/registration_page.dart';
@@ -38,6 +39,15 @@ class OnGenerateRoute {
           );
           break;
         }
+
+      case PageConst.artistregistrationPage:
+      {
+        return materialBuilder(
+          widget: ArtistRegistrationPage(),
+        );
+        break;
+      }
+        
       case PageConst.phoneRegistrationPage:
       default:
         return materialBuilder(

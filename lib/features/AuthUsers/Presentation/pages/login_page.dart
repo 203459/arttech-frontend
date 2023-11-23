@@ -77,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
           children: <Widget>[
             SizedBox(
               width: 292,
-              height: 50,
+              height: 60,
             ),
             Container(
               child: Text(
@@ -96,12 +96,12 @@ class _LoginPageState extends State<LoginPage> {
               height: 20,
             ),
             Divider(
-              thickness: 1,
+              thickness: 2,
               endIndent: 15,
               indent: 15,
             ),
             SizedBox(
-              height: 30,
+              height: 20,
             ),
             Container(
               height: 50,
@@ -164,18 +164,19 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             SizedBox(
-              height: 15,
+              height: 20,
             ),
             Align(
-              alignment: Alignment.topRight,
+              alignment: Alignment.center,
               child: InkWell(
                 onTap: () {
                   Navigator.pushNamed(context, PageConst.forgotPage);
                 },
-                child: Text(
+                child: const Text(
                   '¿Olvidaste tu contraseña?',
+                  //textAlign: TextAlign.right,
                   style: TextStyle(
-                      color: darkPrimaryColor,
+                      color: Color(0xFFAA5EB7),
                       fontSize: 16,
                       fontWeight: FontWeight.w700),
                 ),
@@ -230,68 +231,70 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 )),
             SizedBox(
-              height: 20,
+              height: 40,
             ),
-            Container(
-              alignment: Alignment.topRight,
-              child: Row(
-                children: <Widget>[
-                  Text(
-                    "¿Aún no tienes cuenta?",
-                    style: TextStyle(
+            Center(
+              child: Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const Text(
+                      "¿Aún no tienes cuenta?",
+                      style: TextStyle(
                         color: Color(0xFF6F6F6F),
-                        fontSize: 14,
+                        fontSize: 16,
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w700,
-                        height: 0),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pushNamed(context, PageConst.registrationPage);
-                    },
-                    child: Text(
-                      'Crea una',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xFFAA5EB7),
+                        height: 0,
                       ),
                     ),
-                  )
-                ],
+                    SizedBox(
+                      width: 5,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, PageConst.registrationPage);
+                      },
+                      child: Text(
+                        'Crea una',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xFFAA5EB7),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 35,
             ),
             Container(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Align(
-                    alignment: Alignment.centerLeft,
+                    alignment: Alignment.bottomLeft,
                     child: Text(
                       "O intenta con: ",
                       style: TextStyle(
                           color: Color(0xFF6F6F6F),
-                          fontSize: 14,
+                          fontSize: 16,
                           fontWeight: FontWeight.w500),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 30),
                   GestureDetector(
                     onTap: () {
                       BlocProvider.of<CredentialCubit>(context)
                           .googleAuthSubmit();
                     },
-                    
                     child: Container(
                       width: 160,
                       height: 50,
-                      
                       child: Stack(
                         children: [
                           Positioned(
@@ -323,9 +326,9 @@ class _LoginPageState extends State<LoginPage> {
                               clipBehavior: Clip.antiAlias,
                               decoration: BoxDecoration(),
                               child: Icon(
-                        LineIcons.googleLogo,
-                        color: Colors.white,
-                      ),
+                                LineIcons.googleLogo,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                           Positioned(
@@ -345,7 +348,6 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ],
                       ),
-                      
                     ),
                   ),
                 ],

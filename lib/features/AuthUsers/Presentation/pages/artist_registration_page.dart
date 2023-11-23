@@ -16,14 +16,18 @@ import 'package:proyecto_c2/features/AuthUsers/Presentation/widgets/theme/style.
 import 'package:proyecto_c2/page_const.dart';
 import 'home_page.dart';
 
-class RegistrationPage extends StatefulWidget {
+class ArtistRegistrationPage extends StatefulWidget {
   @override
   _RegistrationPageState createState() => _RegistrationPageState();
 }
 
-class _RegistrationPageState extends State<RegistrationPage> {
+class _RegistrationPageState extends State<ArtistRegistrationPage> {
   TextEditingController _usernameController = TextEditingController();
+  TextEditingController _firstNameController = TextEditingController();
+  TextEditingController _lastNameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
+  TextEditingController _phoneController = TextEditingController();
+
   TextEditingController _passwordController = TextEditingController();
   //TextEditingController _dobController = TextEditingController();
   //TextEditingController _genderController = TextEditingController();
@@ -32,7 +36,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
   TextEditingController _numberController = TextEditingController();
 
   GlobalKey<ScaffoldState> _scaffoldState = GlobalKey<ScaffoldState>();
-
   //int _selectGender = -1;
   int _selectExamType = -1;
   bool _isShowPassword = true;
@@ -130,7 +133,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
             ),
             Container(
               child: Text(
-                'Registro',
+                'Se un artista',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Color(0xFFAA5EB7),
@@ -185,8 +188,31 @@ class _RegistrationPageState extends State<RegistrationPage> {
             TextFieldContainer(
               controller: _usernameController,
               keyboardType: TextInputType.text,
-              hintText: 'Nombre de usuario',
-              prefixIcon: Icons.person,
+              hintText: 'NickName',
+              prefixIcon: Icons.person_pin_rounded,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: TextFieldContainer(
+                    controller: _firstNameController,
+                    keyboardType: TextInputType.text,
+                    hintText: 'Nombre',
+                    prefixIcon: Icons.person,
+                  ),
+                ),
+                SizedBox(width: 16), // Espacio entre los dos campos
+                Expanded(
+                  child: TextFieldContainer(
+                      controller: _lastNameController,
+                      keyboardType: TextInputType.text,
+                      hintText: 'Apellido',
+                      prefixIcon: Icons.person),
+                ),
+              ],
             ),
             SizedBox(
               height: 30,
@@ -196,6 +222,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
               keyboardType: TextInputType.emailAddress,
               hintText: 'Correo electrónico',
               prefixIcon: Icons.mail,
+            ),
+            SizedBox(height: 30), // Espacio entre los bloques de campos
+            TextFieldContainer(
+              controller: _phoneController,
+              keyboardType: TextInputType.phone,
+              hintText: 'Teléfono',
+              prefixIcon: Icons.phone,
             ),
             SizedBox(
               height: 30,
@@ -282,7 +315,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
             SizedBox(
               height: 10,
             ),*/
-            
+
             /* GestureDetector(
               onTap: _genderModalBottomSheetMenu,
               child: Container(
@@ -311,46 +344,46 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 _submitSignUp();
               },
               child: Container(
-                  width: 250,
-                  height: 50,
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        left: 0,
-                        top: 0,
-                        child: Container(
-                          width: 250,
-                          height: 50,
-                          decoration: ShapeDecoration(
-                            color: Color(0xFFAA5EB7),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
+                width: 250,
+                height: 50,
+                child: Stack(
+                  children: [
+                    Positioned(
+                      left: 0,
+                      top: 0,
+                      child: Container(
+                        width: 250,
+                        height: 50,
+                        decoration: ShapeDecoration(
+                          color: Color(0xFFAA5EB7),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
                           ),
                         ),
                       ),
-                      Positioned(
-                        left: 58.96,
-                        top: 13,
-                        child: SizedBox(
-                          width: 139.17,
-                          height: 25,
-                          child: Text(
-                            'Registrarme',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontFamily: 'Inter',
-                              fontWeight: FontWeight.w700,
-                              height: 0,
-                            ),
+                    ),
+                    Positioned(
+                      left: 58.96,
+                      top: 13,
+                      child: SizedBox(
+                        width: 139.17,
+                        height: 25,
+                        child: Text(
+                          'Registrarme',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w700,
+                            height: 0,
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
+              ),
             ),
             SizedBox(
               height: 30,
@@ -361,7 +394,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 children: <Widget>[
                   Text(
                     '¿Ya tienes cuenta? ',
-                    style: TextStyle(color: Color(0xFF6F6F6F), fontSize: 14, fontWeight: FontWeight.w500),
+                    style: TextStyle(
+                        color: Color(0xFF6F6F6F),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
                     width: 5,
@@ -382,51 +418,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 150,
-            ),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Al hacer click en "registrarme", aceptas ',
-                    style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xFF6F6F6F)),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'los ',
-                    style: TextStyle(
-                        color: Color(0xFF6F6F6F),
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700),
-                  ),
-                  Text(
-                    'términos y condiciones ',
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 18, 148, 218),
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700),
-                  ),
-                  Text(
-                    'de uso.',
-                    style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xFF6F6F6F)),
-                  ),
-                ],
-              ),
-            )
           ],
         ),
       ),
