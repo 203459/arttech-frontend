@@ -60,6 +60,7 @@ dependencies:
   geolocator: ^9.0.2
 
 dev_dependencies:
+  watcher: ^1.1.0
   flutter_test:
     sdk: flutter
 
@@ -111,3 +112,6 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+scripts:
+  watch:
+    command: watcher -c "flutter run"

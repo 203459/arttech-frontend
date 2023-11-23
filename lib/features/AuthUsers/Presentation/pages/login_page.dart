@@ -76,30 +76,32 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: <Widget>[
             SizedBox(
-              height: 20,
+              width: 292,
+              height: 50,
             ),
             Container(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  'Iniciar sesión',
-                  style: TextStyle(
-                      fontSize: 35,
-                      fontWeight: FontWeight.w700,
-                      color: darkPrimaryColor),
-                )),
+              child: Text(
+                'Inicio de sesión',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Color(0xFFAA5EB7),
+                  fontSize: 36,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w700,
+                  height: 0,
+                ),
+              ),
+            ),
             SizedBox(
-              height: 10,
+              height: 20,
             ),
             Divider(
               thickness: 1,
               endIndent: 15,
               indent: 15,
             ),
-            // Container(
-            //   child: SvgPicture.asset('assets/login_image.svg'),
-            // ),
             SizedBox(
-              height: 17,
+              height: 30,
             ),
             Container(
               height: 50,
@@ -125,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 40,
             ),
             Container(
               height: 50,
@@ -162,7 +164,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             SizedBox(
-              height: 8,
+              height: 15,
             ),
             Align(
               alignment: Alignment.topRight,
@@ -171,7 +173,7 @@ class _LoginPageState extends State<LoginPage> {
                   Navigator.pushNamed(context, PageConst.forgotPage);
                 },
                 child: Text(
-                  '¿No recuerdas tu contraseña?',
+                  '¿Olvidaste tu contraseña?',
                   style: TextStyle(
                       color: darkPrimaryColor,
                       fontSize: 16,
@@ -180,29 +182,53 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 30,
             ),
             InkWell(
-              onTap: () {
-                _submitLogin();
-              },
-              child: Container(
-                alignment: Alignment.center,
-                height: 44,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(18, 169, 221, 1),
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                ),
-                child: Text(
-                  'Iniciar sesión',
-                  style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white),
-                ),
-              ),
-            ),
+                onTap: () {
+                  _submitLogin();
+                },
+                child: Container(
+                  width: 250,
+                  height: 50,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        left: 0,
+                        top: 0,
+                        child: Container(
+                          width: 250,
+                          height: 50,
+                          decoration: ShapeDecoration(
+                            color: Color(0xFFAA5EB7),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        left: 58.96,
+                        top: 13,
+                        child: SizedBox(
+                          width: 139.17,
+                          height: 25,
+                          child: Text(
+                            'Ingresar',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w700,
+                              height: 0,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )),
             SizedBox(
               height: 20,
             ),
@@ -212,24 +238,29 @@ class _LoginPageState extends State<LoginPage> {
                 children: <Widget>[
                   Text(
                     "¿Aún no tienes cuenta?",
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                    style: TextStyle(
+                        color: Color(0xFF6F6F6F),
+                        fontSize: 14,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w700,
+                        height: 0),
                   ),
                   SizedBox(
-                    width: 5,
+                    width: 10,
                   ),
                   InkWell(
                     onTap: () {
-                      //Navigator.pushNamedAndRemoveUntil(context, "/registration", (route) => false);
                       Navigator.pushNamed(context, PageConst.registrationPage);
                     },
                     child: Text(
-                      ' Crea una',
+                      'Crea una',
                       style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                          color: darkPrimaryColor),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                        color: Color(0xFFAA5EB7),
+                      ),
                     ),
-                  ),
+                  )
                 ],
               ),
             ),
@@ -243,9 +274,11 @@ class _LoginPageState extends State<LoginPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "O intenta con:",
-                      style:
-                          TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                      "O intenta con: ",
+                      style: TextStyle(
+                          color: Color(0xFF6F6F6F),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500),
                     ),
                   ),
                   SizedBox(height: 20),
@@ -254,24 +287,65 @@ class _LoginPageState extends State<LoginPage> {
                       BlocProvider.of<CredentialCubit>(context)
                           .googleAuthSubmit();
                     },
+                    
                     child: Container(
+                      width: 160,
                       height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                          color: Color.fromRGBO(66, 133, 244, 1),
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(.2),
-                              offset: Offset(1.0, 1.0),
-                              spreadRadius: 1,
-                              blurRadius: 1,
-                            )
-                          ]),
-                      child: Icon(
-                        LineIcons.googlePlusG,
+                      
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            left: 0,
+                            top: 0,
+                            child: Container(
+                              width: 160,
+                              height: 50,
+                              decoration: ShapeDecoration(
+                                color: Color(0xFFD05D5D),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 14,
+                            top: 8,
+                            child: Container(
+                              width: 35,
+                              height: 35,
+                              padding: const EdgeInsets.only(
+                                top: 2.92,
+                                left: 2.96,
+                                right: 3.65,
+                                bottom: 2.92,
+                              ),
+                              clipBehavior: Clip.antiAlias,
+                              decoration: BoxDecoration(),
+                              child: Icon(
+                        LineIcons.googleLogo,
                         color: Colors.white,
                       ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 63,
+                            top: 13,
+                            child: Text(
+                              'Google',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w700,
+                                height: 0,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      
                     ),
                   ),
                 ],
