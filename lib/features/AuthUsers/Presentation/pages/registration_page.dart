@@ -34,7 +34,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
   GlobalKey<ScaffoldState> _scaffoldState = GlobalKey<ScaffoldState>();
 
   //int _selectGender = -1;
-  int _selectExamType = -1;
+  //int _selectExamType = -1;
   bool _isShowPassword = true;
 
   //File? _image;

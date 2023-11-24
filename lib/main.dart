@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       title: "ARTECH",
       debugShowCheckedModeBanner: false,
       color: primaryColor,
-      home: SplashScreen(), // Mostrar SplashScreen como la pantalla principal
+      home: SplashScreen(),
     );
   }
 }
@@ -60,14 +60,18 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/logo_artech.png', // Reemplaza con la ruta de tu imagen
-              width: 200.0, // Ajusta el ancho según tus necesidades
-              height: 200.0, // Ajusta la altura según tus necesidades
+              'assets/logo_artech.png',
+              width: 200.0,
+              height: 200.0,
             ),
-            SizedBox(height: 16.0), // Espacio entre la imagen y el texto
+            SizedBox(height: 16.0),
             Text(
               'ARTECH',
-              style: TextStyle(fontSize: 24.0,fontWeight: FontWeight.bold, fontFamily: 'Inter',),
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Inter',
+              ),
             ),
           ],
         ),

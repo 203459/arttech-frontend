@@ -1,4 +1,4 @@
-package com.example.proyecto_c2
+package com.arttech
 
 import io.flutter.embedding.android.FlutterActivity
 
