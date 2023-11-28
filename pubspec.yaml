@@ -58,6 +58,7 @@ dependencies:
   url_launcher: ^6.1.11
   syncfusion_flutter_pdfviewer: ^21.2.9
   geolocator: ^9.0.2
+  flutter_map: ^4.0.0
 
   
 dev_dependencies:

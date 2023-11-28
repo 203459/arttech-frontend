@@ -8,6 +8,8 @@ import 'package:proyecto_c2/features/AuthUsers/Presentation/cubit/user/user_cubi
 import 'package:proyecto_c2/features/AuthUsers/Presentation/pages/home_page.dart';
 import 'package:proyecto_c2/features/AuthUsers/Presentation/pages/login_page.dart';
 import 'package:proyecto_c2/features/AuthUsers/Presentation/widgets/theme/style.dart';
+import 'package:proyecto_c2/features/Chats/Presentation/cubit/chat/chat_cubit.dart';
+import 'package:proyecto_c2/features/Chats/Presentation/cubit/group/group_cubit.dart';
 import 'on_generate_route.dart';
 import 'injection_container.dart' as di;
 
@@ -93,6 +95,12 @@ class MyAppBody extends StatelessWidget {
         ),
         BlocProvider<UserCubit>(
           create: (_) => di.sl<UserCubit>()..getUsers(),
+        ),
+        BlocProvider<GroupCubit>(
+          create: (_) => di.sl<GroupCubit>()..getGroups(),
+        ),
+        BlocProvider<ChatCubit>(
+          create: (_) => di.sl<ChatCubit>(),
         ),
       ],
       child: MaterialApp(

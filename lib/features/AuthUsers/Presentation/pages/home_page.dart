@@ -8,6 +8,8 @@ import 'package:proyecto_c2/features/AuthUsers/Presentation/pages/all_users_page
 import 'package:proyecto_c2/features/AuthUsers/Presentation/pages/profile_page.dart';
 import 'package:proyecto_c2/features/AuthUsers/Presentation/widgets/customTabBar.dart';
 import 'package:proyecto_c2/features/AuthUsers/Presentation/widgets/theme/style.dart';
+import 'package:proyecto_c2/features/Chats/Presentation/cubit/group/group_cubit.dart';
+import 'package:proyecto_c2/features/Chats/Presentation/pages/groups_page.dart';
 
 class HomePage extends StatefulWidget {
   final String uid;
@@ -23,6 +25,10 @@ class _HomePageState extends State<HomePage> {
   PageController _pageController = PageController(initialPage: 0);
 
   List<Widget> get pages => [
+        GroupsPage(
+          uid: widget.uid,
+          query: _searchTextController.text,
+        ),
         AllUsersPage(
           uid: widget.uid,
           query: _searchTextController.text,
@@ -47,7 +53,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     BlocProvider.of<UserCubit>(context).getUsers();
-
+    BlocProvider.of<GroupCubit>(context).getGroups();
     _searchTextController.addListener(() {
       setState(() {});
     });
@@ -94,7 +100,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor:
             _isSearch == false ? Color(0xFF0A6AA6) : Colors.transparent,
         title: _isSearch == false
-            ? Text("FluChat")
+            ? Text("ARTECH")
             : Container(
                 height: 0.0,
                 width: 0.0,

@@ -28,66 +28,118 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
           child: Column(
             children: <Widget>[
               SizedBox(
-                height: 20,
+                width: 292,
+                height: 80,
               ),
               Container(
                   alignment: Alignment.topLeft,
                   child: Text(
-                    'Forgot Password',
+                    '¿Olvidaste tu contraseña?',
                     style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.w700,
-                        color: darkPrimaryColor),
+                        color: Color(0xFFAA5EB7)),
                   )),
               SizedBox(
-                height: 10,
-              ),
-              Divider(
-                thickness: 1,
-              ),
-              SizedBox(
-                height: 30,
+                height: 50,
               ),
               Text(
-                "Don't worry! Just fill in your email and FluChat will send you a link to rest your password.",
+                "¡No te preocupes! Solo introduce tu correo electrónico y el equipo de ARTTECH te mandará un enlace para reestablecerla.",
                 style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.black.withOpacity(.6),
-                    fontStyle: FontStyle.italic),
+                  color: Color(0xFF6F6F6F),
+                  fontSize: 16,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w700,
+                  height: 0,
+                ),
               ),
               SizedBox(
-                height: 30,
+                height: 100,
               ),
               TextFieldContainer(
                 controller: _emailController,
                 prefixIcon: Icons.mail,
                 keyboardType: TextInputType.emailAddress,
-                hintText: 'Email',
+                hintText: 'Correo electrónico',
               ),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
               InkWell(
                 onTap: () {
                   _submit();
                 },
                 child: Container(
+                  width: 250,
+                  height: 150,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        left: 0,
+                        top: 0,
+                        child: Container(
+                          width: 250,
+                          height: 75,
+                          decoration: ShapeDecoration(
+                            color: Color(0xFFAA5EB7),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        right: 20,
+                        left: 20,
+                        top: 13,
+                        child: SizedBox(
+                          width: 200,
+                          height: 200,
+                          child: Text(
+                            'Enviar correo de reestablecimiento',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w700,
+                              height: 0,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )),
+              /*InkWell(
+                onTap: () {
+                  _submit();
+                },
+                
+                child: Container(
                   alignment: Alignment.center,
-                  height: 44,
-                  width: MediaQuery.of(context).size.width,
+                  height: 50,
+                  width: 250,
                   decoration: BoxDecoration(
                     color: darkPrimaryColor,
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                   child: Text(
-                    'Send Password Reset Email',
+                    'Enviar correo de reestablecimiento',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 17,
+                        /*fontSize: 17,
                         fontWeight: FontWeight.w700,
-                        color: Colors.white),
+                        color: Colors.white*/
+                        color: Colors.white,
+                              fontSize: 20,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w700,
+                              height: 0,
+                        ),
                   ),
                 ),
-              ),
+              ),*/
               SizedBox(
                 height: 27,
               ),
@@ -96,7 +148,7 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Remember the account information? ',
+                      '¿Recuerdas la información de la cuenta? ',
                       style:
                           TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                     ),
@@ -106,11 +158,11 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                             context, PageConst.loginPage, (route) => false);
                       },
                       child: Text(
-                        'Login',
+                        'Inicia sesión',
                         style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w700,
-                            color: darkPrimaryColor),
+                            color: Color(0xFFAA5EB7)),
                       ),
                     ),
                   ],

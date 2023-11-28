@@ -84,7 +84,8 @@ class _LoginPageState extends State<LoginPage> {
                 'Inicio de sesión',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Color(0xFFAA5EB7),
+                  color: Color(0xFFAA5EB7)
+                ,
                   fontSize: 36,
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w700,
