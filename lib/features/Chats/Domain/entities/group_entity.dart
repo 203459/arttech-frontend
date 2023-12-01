@@ -3,7 +3,6 @@ import 'package:equatable/equatable.dart';
 
 class GroupEntity extends Equatable {
   final String groupName;
-  final String groupProfileImage;
   final String joinUsers;
   final String limitUsers;
   final Timestamp? creationTime;
@@ -13,7 +12,6 @@ class GroupEntity extends Equatable {
 
   GroupEntity({
     this.groupName = "",
-    this.groupProfileImage = "",
     this.joinUsers = "",
     this.limitUsers = "",
     this.creationTime,
@@ -25,7 +23,6 @@ class GroupEntity extends Equatable {
   @override
   List<Object> get props => [
         groupName,
-        groupProfileImage,
         joinUsers,
         uid,
         limitUsers,

@@ -263,7 +263,7 @@ class _SingleChatPageState extends State<SingleChatPage> {
                                   time: Timestamp.now(),
                                   senderId: widget.singleChatEntity.uid,
                                   content: url,
-                                  senderName: widget.singleChatEntity.username,
+                                  //senderName: widget.singleChatEntity.username,
                                   type: "IMG"),
                               channelId: widget.singleChatEntity.groupId);
                           BlocProvider.of<GroupCubit>(context).updateGroup(
@@ -301,9 +301,9 @@ class _SingleChatPageState extends State<SingleChatPage> {
                                                 senderId: widget
                                                     .singleChatEntity.uid,
                                                 content: videourl,
-                                                senderName:
+                                                /*senderName:
                                                     widget.singleChatEntity
-                                                        .username,
+                                                        .username,*/
                                                 type: "VID"),
                                         channelId:
                                             widget.singleChatEntity.groupId);
@@ -353,7 +353,7 @@ class _SingleChatPageState extends State<SingleChatPage> {
                               time: Timestamp.now(),
                               senderId: widget.singleChatEntity.uid,
                               content: pdf,
-                              senderName: widget.singleChatEntity.username,
+                              //senderName: widget.singleChatEntity.username,
                               type: "PDF"),
                           channelId: widget.singleChatEntity.groupId);
                       BlocProvider.of<GroupCubit>(context).updateGroup(
@@ -383,7 +383,7 @@ class _SingleChatPageState extends State<SingleChatPage> {
                               time: Timestamp.now(),
                               senderId: widget.singleChatEntity.uid,
                               content: location,
-                              senderName: widget.singleChatEntity.username,
+                              //senderName: widget.singleChatEntity.username,
                               type: "LOCATION"),
                           channelId: widget.singleChatEntity.groupId);
                       BlocProvider.of<GroupCubit>(context).updateGroup(
@@ -428,7 +428,7 @@ class _SingleChatPageState extends State<SingleChatPage> {
                         time: Timestamp.now(),
                         senderId: widget.singleChatEntity.uid,
                         content: audiourl,
-                        senderName: widget.singleChatEntity.username,
+                        //senderName: widget.singleChatEntity.username,
                         type: "AUDIO"),
                     channelId: widget.singleChatEntity.groupId);
                 BlocProvider.of<GroupCubit>(context).updateGroup(
@@ -445,7 +445,7 @@ class _SingleChatPageState extends State<SingleChatPage> {
                         time: Timestamp.now(),
                         senderId: widget.singleChatEntity.uid,
                         content: _messageController.text,
-                        senderName: widget.singleChatEntity.username,
+                        //senderName: widget.singleChatEntity.username,
                         type: "TEXT"),
                     channelId: widget.singleChatEntity.groupId);
                 BlocProvider.of<GroupCubit>(context).updateGroup(
@@ -495,7 +495,7 @@ class _SingleChatPageState extends State<SingleChatPage> {
             print(message.type);
             if (message.type == 'TEXT') {
               return _messageLayout(
-                name: "Yo",
+               // name: "Yo",
                 alignName: TextAlign.end,
                 color: const Color.fromRGBO(142, 142, 142, 1),
                 time: DateFormat('hh:mm a').format(message.time!.toDate()),
@@ -507,7 +507,7 @@ class _SingleChatPageState extends State<SingleChatPage> {
               );
             } else if (message.type == 'IMG') {
               return _imageLayout(
-                name: "Yo",
+                //name: "Yo",
                 alignName: TextAlign.end,
                 color: const Color.fromRGBO(142, 142, 142, 1),
                 time: DateFormat('hh:mm a').format(message.time!.toDate()),
@@ -519,7 +519,7 @@ class _SingleChatPageState extends State<SingleChatPage> {
               );
             } else if (message.type == 'VID') {
               return _videoLayout(
-                name: "Yo",
+               // name: "Yo",
                 alignName: TextAlign.end,
                 color: const Color.fromRGBO(142, 142, 142, 1),
                 time: DateFormat('hh:mm a').format(message.time!.toDate()),
@@ -531,7 +531,7 @@ class _SingleChatPageState extends State<SingleChatPage> {
               );
             } else if (message.type == 'AUDIO') {
               return _audioLayout(
-                name: "Yo",
+                //name: "Yo",
                 alignName: TextAlign.end,
                 color: const Color.fromRGBO(142, 142, 142, 1),
                 time: DateFormat('hh:mm a').format(message.time!.toDate()),
@@ -543,7 +543,7 @@ class _SingleChatPageState extends State<SingleChatPage> {
               );
             } else if (message.type == 'PDF') {
               return _pdfLayout(
-                name: "Yo",
+               // name: "Yo",
                 alignName: TextAlign.end,
                 color: const Color.fromRGBO(142, 142, 142, 1),
                 time: DateFormat('hh:mm a').format(message.time!.toDate()),
@@ -555,7 +555,7 @@ class _SingleChatPageState extends State<SingleChatPage> {
               );
             } else if (message.type == 'LOCATION') {
               return _locationLayout(
-                name: "Yo",
+                //name: "Yo",
                 alignName: TextAlign.end,
                 color: const Color.fromRGBO(142, 142, 142, 1),
                 time: DateFormat('hh:mm a').format(message.time!.toDate()),
@@ -572,7 +572,7 @@ class _SingleChatPageState extends State<SingleChatPage> {
               return _messageLayout(
                 color: const Color.fromRGBO(74, 77, 78, 1),
                 // textColor: Color.fromARGB(255, 253, 253, 253),
-                name: "${message.senderName}",
+               // name: "${message.senderName}",
                 // colorName: Color.fromARGB(255, 103, 17, 169),
                 alignName: TextAlign.end,
                 time: DateFormat('hh:mm a').format(message.time!.toDate()),
@@ -585,7 +585,7 @@ class _SingleChatPageState extends State<SingleChatPage> {
             } else if (message.type == 'IMG') {
               return _imageLayout(
                 color: const Color.fromRGBO(74, 77, 78, 1),
-                name: "${message.senderName}",
+                //name: "${message.senderName}",
                 alignName: TextAlign.end,
                 time: DateFormat('hh:mm a').format(message.time!.toDate()),
                 align: TextAlign.left,
@@ -597,7 +597,7 @@ class _SingleChatPageState extends State<SingleChatPage> {
             } else if (message.type == 'VID') {
               return _videoLayout(
                 color: const Color.fromRGBO(74, 77, 78, 1),
-                name: "${message.senderName}",
+               // name: "${message.senderName}",
                 alignName: TextAlign.end,
                 time: DateFormat('hh:mm a').format(message.time!.toDate()),
                 align: TextAlign.left,
@@ -609,7 +609,7 @@ class _SingleChatPageState extends State<SingleChatPage> {
             } else if (message.type == 'AUDIO') {
               return _audioLayout(
                 color: const Color.fromRGBO(74, 77, 78, 1),
-                name: "${message.senderName}",
+                //name: "${message.senderName}",
                 alignName: TextAlign.end,
                 time: DateFormat('hh:mm a').format(message.time!.toDate()),
                 align: TextAlign.left,
@@ -621,7 +621,7 @@ class _SingleChatPageState extends State<SingleChatPage> {
             } else if (message.type == 'PDF') {
               return _pdfLayout(
                 color: const Color.fromRGBO(74, 77, 78, 1),
-                name: "${message.senderName}",
+                //name: "${message.senderName}",
                 alignName: TextAlign.end,
                 time: DateFormat('hh:mm a').format(message.time!.toDate()),
                 align: TextAlign.left,
@@ -633,7 +633,7 @@ class _SingleChatPageState extends State<SingleChatPage> {
             } else if (message.type == 'LOCATION') {
               return _locationLayout(
                 color: const Color.fromRGBO(74, 77, 78, 1),
-                name: "${message.senderName}",
+                //name: "${message.senderName}",
                 alignName: TextAlign.end,
                 time: DateFormat('hh:mm a').format(message.time!.toDate()),
                 align: TextAlign.left,
@@ -657,7 +657,7 @@ class _SingleChatPageState extends State<SingleChatPage> {
     boxAlign,
     nip,
     crossAlign,
-    String? name,
+    //String? name,
     alignName,
   }) {
     return Column(
@@ -677,14 +677,14 @@ class _SingleChatPageState extends State<SingleChatPage> {
                 crossAxisAlignment: crossAlign,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
+                 /* Text(
                     "$name",
                     textAlign: alignName,
                     style: const TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.bold,
                         color: Color.fromRGBO(132, 200, 255, 1)),
-                  ),
+                  ),*/
                   Text(
                     text,
                     textAlign: align,

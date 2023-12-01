@@ -16,8 +16,12 @@ import 'package:proyecto_c2/features/Chats/Presentation/cubit/group/group_cubit.
 
 class CreateGroupPage extends StatefulWidget {
   final String uid;
+  //final String otherUserId;
+
 
   const CreateGroupPage({Key? key, required this.uid}) : super(key: key);
+   //const CreateGroupPage({Key? key, required this.uid, required this.otherUserId}) : super(key: key);
+
   @override
   _CreateGroupPageState createState() => _CreateGroupPageState();
 }
@@ -38,10 +42,10 @@ class _CreateGroupPageState extends State<CreateGroupPage> {
   int _selectExamType = -1;
   bool _isShowPassword = true;
 
-  File? _image;
-  String? _profileUrl;
+ // File? _image;
+  //String? _profileUrl;
 
-  Future getImage() async {
+  /*Future getImage() async {
     try {
       final pickedFile =
           await ImagePicker.platform.getImage(source: ImageSource.gallery);
@@ -64,7 +68,7 @@ class _CreateGroupPageState extends State<CreateGroupPage> {
     } catch (e) {
       toast("error $e");
     }
-  }
+  }*/
 
   void dispose() {
     _examTypeController.dispose();
@@ -97,21 +101,21 @@ class _CreateGroupPageState extends State<CreateGroupPage> {
         child: Column(
           children: <Widget>[
             GestureDetector(
-              onTap: () async {
+              /*onTap: () async {
                 getImage();
-              },
+              },*/
               child: Column(
                 children: [
                   Container(
                     height: 100,
                     width: 100,
-                    decoration: BoxDecoration(
+                    /*decoration: BoxDecoration(
                       color: color747480,
                       borderRadius: BorderRadius.all(Radius.circular(50)),
                     ),
                     child: ClipRRect(
                         borderRadius: BorderRadius.all(Radius.circular(50)),
-                        child: profileWidget(image: _image)),
+                        child: profileWidget(image: _image)),*/
                   ),
                   SizedBox(
                     height: 12,
@@ -259,10 +263,10 @@ class _CreateGroupPageState extends State<CreateGroupPage> {
   }
 
   _submit() async {
-    if (_image == null) {
+    /*if (_image == null) {
       toast('Agrega una foto de perfil');
       return;
-    }
+    }*/
     if (_groupNameController.text.isEmpty) {
       toast('Ingresa tu apodo');
       return;
@@ -270,7 +274,7 @@ class _CreateGroupPageState extends State<CreateGroupPage> {
     if (_numberUsersJoinController.text.isEmpty) {
       toast('Ingresa tu correo electrónico');
       return;
-    }
+    } 
 
     BlocProvider.of<GroupCubit>(context).getCreateGroup(
         groupEntity: GroupEntity(
@@ -278,9 +282,11 @@ class _CreateGroupPageState extends State<CreateGroupPage> {
       uid: widget.uid,
       groupName: _groupNameController.text,
       creationTime: Timestamp.now(),
-      groupProfileImage: _profileUrl!,
+      //groupProfileImage: _profileUrl!,
       joinUsers: "0",
       limitUsers: _numberUsersJoinController.text,
+    /*joinUsers: "${widget.uid},${widget.otherUserId}",
+    limitUsers: "2",*/
     ));
     toast("${_groupNameController.text} creado correctamente");
     _clear();
@@ -290,8 +296,8 @@ class _CreateGroupPageState extends State<CreateGroupPage> {
     setState(() {
       _groupNameController.clear();
       _numberUsersJoinController.clear();
-      _profileUrl = "";
-      _image = null;
+     // _profileUrl = "";
+     // _image = null;
     });
   }
 }

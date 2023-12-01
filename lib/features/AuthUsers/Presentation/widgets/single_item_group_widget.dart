@@ -26,12 +26,12 @@ class SingleItemGroupWidget extends StatelessWidget {
                     Container(
                       width: 55,
                       height: 55,
-                      decoration: BoxDecoration(
+                     /* decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(50))),
                       child: ClipRRect(
                         borderRadius: BorderRadius.all(Radius.circular(50)),
                         child: profileWidget(imageUrl: group.groupProfileImage),
-                      ),
+                      ),*/
                     ),
                     SizedBox(
                       width: 10,

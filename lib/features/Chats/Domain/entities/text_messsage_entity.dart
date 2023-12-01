@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 class TextMessageEntity extends Equatable {
   final String? recipientId;
   final String? senderId;
-  final String? senderName;
+  //final String? senderName;
   final String? type;
   final Timestamp? time;
   final String? content;
@@ -14,7 +14,7 @@ class TextMessageEntity extends Equatable {
   TextMessageEntity({
     this.recipientId,
     this.senderId,
-    this.senderName,
+    //this.senderName,
     this.type,
     this.time,
     this.content,
@@ -26,7 +26,7 @@ class TextMessageEntity extends Equatable {
   List<Object> get props => [
         recipientId!,
         senderId!,
-        senderName!,
+        //senderName!,
         type!,
         time!,
         content!,

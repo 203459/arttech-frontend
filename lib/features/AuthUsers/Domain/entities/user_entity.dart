@@ -7,7 +7,6 @@ class UserEntity extends Equatable {
   final bool isOnline;
   final String uid;
   final String status;
-  final String profileUrl;
   final String password;
   final String dob;
   final String gender;
@@ -19,7 +18,6 @@ class UserEntity extends Equatable {
     this.isOnline = false,
     this.uid = "",
     this.status = "Hello there i'm using this app",
-    this.profileUrl = "",
     this.password = "",
     this.dob = "",
     this.gender = "",
@@ -33,7 +31,6 @@ class UserEntity extends Equatable {
         isOnline,
         uid,
         status,
-        profileUrl,
         password,
         dob,
         gender,

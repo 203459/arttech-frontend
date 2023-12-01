@@ -5,7 +5,7 @@ class TextMessageModel extends TextMessageEntity {
   TextMessageModel({
     String? recipientId,
     String? senderId,
-    String? senderName,
+    //String? senderName,
     String? type,
     Timestamp? time,
     String? content,
@@ -14,7 +14,7 @@ class TextMessageModel extends TextMessageEntity {
   }) : super(
           recipientId: recipientId,
           senderId: senderId,
-          senderName: senderName,
+         // senderName: senderName,
           type: type,
           time: time,
           content: content,
@@ -26,7 +26,7 @@ class TextMessageModel extends TextMessageEntity {
     return TextMessageModel(
       recipientId: snapshot.get('recipientId'),
       senderId: snapshot.get('senderId'),
-      senderName: snapshot.get('senderName'),
+      //senderName: snapshot.get('senderName'),
       type: snapshot.get('type'),
       time: snapshot.get('time'),
       content: snapshot.get('content'),
@@ -39,7 +39,7 @@ class TextMessageModel extends TextMessageEntity {
     return {
       "recipientId": recipientId,
       "senderId": senderId,
-      "senderName": senderName,
+      //"senderName": senderName,
       "type": type,
       "time": time,
       "content": content,

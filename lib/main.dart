@@ -42,7 +42,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // Simula un tiempo de carga antes de navegar a la pantalla principal
     Timer(
       Duration(seconds: 3),
       () {

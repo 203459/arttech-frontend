@@ -26,7 +26,7 @@ class AuthFirebaseRemoteDataSourceImpl implements AuthFirebaseRemoteDataSource {
         uid: uid,
         phoneNumber: user.phoneNumber,
         email: user.email,
-        profileUrl: user.profileUrl,
+       // profileUrl: user.profileUrl,
         isOnline: user.isOnline,
         status: user.status,
         dob: user.dob,
@@ -85,8 +85,8 @@ class AuthFirebaseRemoteDataSourceImpl implements AuthFirebaseRemoteDataSource {
                   phoneNumber: information.phoneNumber == null
                       ? ""
                       : information.phoneNumber!,
-                  profileUrl:
-                      information.photoURL == null ? "" : information.photoURL!,
+                  /*profileUrl:
+                      information.photoURL == null ? "" : information.photoURL!,*/
                   isOnline: false,
                   status: "",
                   dob: "",
@@ -124,8 +124,8 @@ class AuthFirebaseRemoteDataSourceImpl implements AuthFirebaseRemoteDataSource {
     print(user.name);
     final userCollection = fireStore.collection("users");
 
-    if (user.profileUrl != null && user.profileUrl != "")
-      userInformation['profileUrl'] = user.profileUrl;
+    /*if (user.profileUrl != null && user.profileUrl != "")
+      userInformation['profileUrl'] = user.profileUrl;*/
     if (user.status != null && user.status != "")
       userInformation['status'] = user.status;
     if (user.phoneNumber != null && user.phoneNumber != "")

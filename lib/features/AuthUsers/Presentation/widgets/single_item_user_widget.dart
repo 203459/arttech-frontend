@@ -24,10 +24,10 @@ class SingleItemStoriesStatusWidget extends StatelessWidget {
                     height: 55,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(50))),
-                    child: ClipRRect(
+                   /* child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(50)),
                       child: profileWidget(imageUrl: user.profileUrl),
-                    ),
+                    ),*/
                   ),
                   SizedBox(
                     width: 10,

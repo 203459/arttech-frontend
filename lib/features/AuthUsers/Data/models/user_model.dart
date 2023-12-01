@@ -9,7 +9,7 @@ class UserModel extends UserEntity {
     bool isOnline = false,
     String uid = "",
     String status = "",
-    String profileUrl = "",
+    //String profileUrl = "",
     String dob = "",
     String gender = "",
   }) : super(
@@ -19,7 +19,7 @@ class UserModel extends UserEntity {
           isOnline: isOnline,
           uid: uid,
           status: status,
-          profileUrl: profileUrl,
+         // profileUrl: profileUrl,
           gender: gender,
           dob: dob,
         );
@@ -32,7 +32,7 @@ class UserModel extends UserEntity {
       isOnline: json['isOnline'],
       uid: json['uid'],
       status: json['status'],
-      profileUrl: json['profileUrl'],
+     // profileUrl: json['profileUrl'],
     );
   }
 
@@ -44,7 +44,7 @@ class UserModel extends UserEntity {
       isOnline: snapshot.get('isOnline'),
       uid: snapshot.get('uid'),
       status: snapshot.get('status'),
-      profileUrl: snapshot.get('profileUrl'),
+     // profileUrl: snapshot.get('profileUrl'),
       dob: snapshot.get('dob'),
       gender: snapshot.get('gender'),
     );
@@ -58,7 +58,7 @@ class UserModel extends UserEntity {
       "isOnline": isOnline,
       "uid": uid,
       "status": status,
-      "profileUrl": profileUrl,
+      //"profileUrl": profileUrl,
       "dob": dob,
       "gender": gender,
     };

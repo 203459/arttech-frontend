@@ -111,15 +111,15 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Container(
                 height: 100,
                 width: 100,
-                decoration: BoxDecoration(
+                /*decoration: BoxDecoration(
                   color: Color.fromRGBO(150, 150, 150, 1),
                   borderRadius: BorderRadius.all(Radius.circular(75)),
-                ),
-                child: ClipRRect(
+                ),*/
+               /* child: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(75)),
                   child:
-                      profileWidget(imageUrl: user.profileUrl, image: _image),
-                ),
+                     // profileWidget(imageUrl: user.profileUrl, image: _image),
+                ),*/
               ),
             ),
             SizedBox(
@@ -259,7 +259,7 @@ class _ProfilePageState extends State<ProfilePage> {
         uid: widget.uid,
         name: _nameController!.text,
         status: _statusController!.text,
-        profileUrl: _profileUrl!,
+        //profileUrl: _profileUrl!,
       ),
     );
     toast("Perfil actualizado");

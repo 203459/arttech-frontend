@@ -39,7 +39,7 @@ class FirebaseRemoteDataSourceImpl implements FirebaseRemoteDataSource {
       receiverName: textMessageEntity.receiverName,
       recipientId: textMessageEntity.recipientId,
       senderId: textMessageEntity.senderId,
-      senderName: textMessageEntity.senderName,
+      //senderName: textMessageEntity.senderName,
       time: textMessageEntity.time,
       type: textMessageEntity.type,
     ).toDocument();
@@ -100,7 +100,7 @@ class FirebaseRemoteDataSourceImpl implements FirebaseRemoteDataSource {
         groupId: groupId,
         limitUsers: groupEntity.limitUsers,
         joinUsers: groupEntity.joinUsers,
-        groupProfileImage: groupEntity.groupProfileImage,
+       // groupProfileImage: groupEntity.groupProfileImage,
         creationTime: groupEntity.creationTime,
         groupName: groupEntity.groupName,
         lastMessage: groupEntity.lastMessage,
@@ -150,9 +150,9 @@ class FirebaseRemoteDataSourceImpl implements FirebaseRemoteDataSource {
 
     final userCollection = fireStore.collection("groups");
 
-    if (groupEntity.groupProfileImage != null &&
+    /*if (groupEntity.groupProfileImage != null &&
         groupEntity.groupProfileImage != "")
-      groupInformation['groupProfileImage'] = groupEntity.groupProfileImage;
+      groupInformation['groupProfileImage'] = groupEntity.groupProfileImage;*/
     if (groupEntity.groupName != null && groupEntity.groupName != "")
       groupInformation["groupName"] = groupEntity.groupName;
     if (groupEntity.lastMessage != null && groupEntity.lastMessage != "")
