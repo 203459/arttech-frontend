@@ -105,7 +105,7 @@ class _RegistrationPageState extends State<ArtistRegistrationPage> {
               builder: (context, authState) {
                 if (authState is Authenticated) {
                   return HomePage(
-                    uid: authState.uid,
+                    id: authState.id,
                   );
                 } else {
                   print("No autentificado");
@@ -678,15 +678,12 @@ class _RegistrationPageState extends State<ArtistRegistrationPage> {
 
     BlocProvider.of<CredentialCubit>(context).signUpSubmit(
       user: UserEntity(
+        id: -1,
         email: _emailController.text,
-        phoneNumber: _numberController.text,
-        name: _usernameController.text,
         //profileUrl: _profileUrl!,
-        //gender: _genderController.text,
-        //dob: _dobController.text,
         password: _passwordController.text,
         isOnline: false,
-        status: "Hola! Estoy usando esta aplicación :)",
+        status: "Hola! Estoy usando esta aplicación :)", 
       ),
     );
   }

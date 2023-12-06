@@ -92,9 +92,9 @@ class MyAppBody extends StatelessWidget {
         BlocProvider<CredentialCubit>(
           create: (_) => di.sl<CredentialCubit>(),
         ),
-        BlocProvider<UserCubit>(
+       /* BlocProvider<UserCubit>(
           create: (_) => di.sl<UserCubit>()..getUsers(),
-        ),
+        ),*/
         BlocProvider<GroupCubit>(
           create: (_) => di.sl<GroupCubit>()..getGroups(),
         ),
@@ -113,7 +113,7 @@ class MyAppBody extends StatelessWidget {
             return BlocBuilder<AuthCubit, AuthState>(
               builder: (context, authState) {
                 if (authState is Authenticated) {
-                  return HomePage(uid: authState.uid);
+                  return HomePage(id: authState.id);
                 } else
                   return LoginPage();
               },

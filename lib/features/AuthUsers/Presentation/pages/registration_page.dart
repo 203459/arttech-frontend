@@ -25,8 +25,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
   TextEditingController _usernameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
-  //TextEditingController _dobController = TextEditingController();
-  //TextEditingController _genderController = TextEditingController();
   TextEditingController _examTypeController = TextEditingController();
   TextEditingController _passwordAgainController = TextEditingController();
   TextEditingController _numberController = TextEditingController();
@@ -66,13 +64,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
   void dispose() {
     _examTypeController.dispose();
-    //_dobController.dispose();
-    //_genderController.dispose();
     _passwordController.dispose();
     _emailController.dispose();
-    //_numberController.dispose();
     _passwordAgainController.dispose();
-    //_usernameController.dispose();
     super.dispose();
   }
 
@@ -102,7 +96,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
               builder: (context, authState) {
                 if (authState is Authenticated) {
                   return HomePage(
-                    uid: authState.uid,
+                    id: authState.id,
                   );
                 } else {
                   print("No autentificado");
@@ -662,10 +656,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
   } */
 
   _submitSignUp() {
-    if (_usernameController.text.isEmpty) {
-      toast('Ingresa un nombre de usuario');
-      return;
-    }
     if (_emailController.text.isEmpty) {
       toast('Ingresa un correo electronico');
       return;
@@ -674,6 +664,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
       toast('Ingresa una contraseña');
       return;
     }
+
     if (_passwordAgainController.text.isEmpty) {
       toast('Repite la contraseña');
       return;
@@ -687,12 +678,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
     BlocProvider.of<CredentialCubit>(context).signUpSubmit(
       user: UserEntity(
+        id: -1,
         email: _emailController.text,
-        phoneNumber: _numberController.text,
-        name: _usernameController.text,
         //profileUrl: _profileUrl!,
-        //gender: _genderController.text,
-        //dob: _dobController.text,
         password: _passwordController.text,
         isOnline: false,
         status: "Hola! Estoy usando esta aplicación :)",

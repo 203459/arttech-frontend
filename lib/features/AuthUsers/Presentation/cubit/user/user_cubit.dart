@@ -9,9 +9,10 @@ import 'package:proyecto_c2/features/AuthUsers/Domain/use_cases/get_update_user_
 part 'user_state.dart';
 
 class UserCubit extends Cubit<UserState> {
-  final GetAllUsersUseCase getAllUsersUseCase;
-  final GetUpdateUserUseCase getUpdateUserUseCase;
-  UserCubit(
+  UserCubit(super.initialState);
+ /* final GetAllUsersUseCase getAllUsersUseCase;
+  final GetUpdateUserUseCase getUpdateUserUseCase;*/
+ /* UserCubit(
       {required this.getAllUsersUseCase, required this.getUpdateUserUseCase})
       : super(UserInitial());
 
@@ -31,5 +32,5 @@ class UserCubit extends Cubit<UserState> {
     } catch (_) {
       emit(UserFailure());
     }
-  }
+  }*/
 }

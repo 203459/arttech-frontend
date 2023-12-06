@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:proyecto_c2/features/AuthUsers/Data/models/user.dart';
 import 'package:proyecto_c2/features/AuthUsers/Data/models/user_model.dart';
 import 'package:proyecto_c2/features/AuthUsers/Presentation/cubit/user/user_cubit.dart';
 import 'package:proyecto_c2/features/AuthUsers/Presentation/widgets/single_item_group_widget.dart';
@@ -29,8 +30,8 @@ class GroupsPage extends StatelessWidget {
         builder: (context, userState) {
           if (userState is UserLoaded) {
             final user = userState.users.firstWhere(
-                (element) => element.uid == uid,
-                orElse: () => UserModel());
+                (element) => element.id == id,
+                orElse: () => User());
 
             return BlocBuilder<GroupCubit, GroupState>(
               builder: (context, groupState) {
@@ -85,7 +86,7 @@ class GroupsPage extends StatelessWidget {
                                         Navigator.pushNamed(
                                             context, PageConst.singleChatPage,
                                             arguments: SingleChatEntity(
-                                                username: user.name,
+                                                username: user.id,
                                                 groupId: filteredGroups[index]
                                                     .groupId,
                                                 groupName: filteredGroups[index]
@@ -111,4 +112,4 @@ class GroupsPage extends StatelessWidget {
       ),
     );
   }
-}
+}*/

@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+/*import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../Domain/entities/user_entity.dart';
 
 class UserModel extends UserEntity {
@@ -64,3 +64,4 @@ class UserModel extends UserEntity {
     };
   }
 }
+*/

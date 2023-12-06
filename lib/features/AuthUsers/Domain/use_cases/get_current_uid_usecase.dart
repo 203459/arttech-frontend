@@ -4,7 +4,7 @@ class GetCurrentUIDUseCase {
   final AuthFirebaseRepository repository;
 
   GetCurrentUIDUseCase({required this.repository});
-  Future<String> call() async {
+  Future<int> call() async {
     return await repository.getCurrentUId();
   }
 }

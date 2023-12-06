@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:proyecto_c2/features/AuthUsers/Presentation/cubit/auth/auth_cubit.dart';
 import 'package:proyecto_c2/features/AuthUsers/Presentation/cubit/credential/credential_cubit.dart';
 import 'package:proyecto_c2/features/AuthUsers/Presentation/widgets/common.dart';
@@ -53,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
               builder: (context, authState) {
                 if (authState is Authenticated) {
                   return HomePage(
-                    uid: authState.uid,
+                    id: authState.id,
                   );
                 } else {
                   print("No autentificado");
@@ -289,10 +290,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   SizedBox(height: 30),
                   GestureDetector(
-                    onTap: () {
+                    /*onTap: () {
                       BlocProvider.of<CredentialCubit>(context)
                           .googleAuthSubmit();
-                    },
+                    },*/
                     child: Container(
                       width: 160,
                       height: 50,
@@ -326,10 +327,11 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               clipBehavior: Clip.antiAlias,
                               decoration: BoxDecoration(),
-                              child: Icon(
-                                LineIcons.googleLogo,
+                              /*child: Icon(
+                                // LineIcons.googleLogo,
+                                MdiIcons.google,
                                 color: Colors.white,
-                              ),
+                              ),*/
                             ),
                           ),
                           Positioned(
@@ -370,6 +372,7 @@ class _LoginPageState extends State<LoginPage> {
       return;
     }
     BlocProvider.of<CredentialCubit>(context).signInSubmit(
+      id: -1 ,
       email: _emailController.text,
       password: _passwordController.text,
     );

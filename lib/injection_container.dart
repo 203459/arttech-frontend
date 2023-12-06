@@ -41,14 +41,17 @@ Future<void> init() async {
         getCurrentUIDUseCase: sl.call(),
       ));
   sl.registerFactory<CredentialCubit>(() => CredentialCubit(
-      getCreateCurrentUserUseCase: sl.call(),
+      //getCreateCurrentUserUseCase: sl.call(),
       signInUseCase: sl.call(),
       signUpUseCase: sl.call(),
-      googleSignInUseCase: sl.call()));
-  sl.registerFactory<UserCubit>(() => UserCubit(
-        getAllUsersUseCase: sl.call(),
-        getUpdateUserUseCase: sl.call(),
-      ));
+      //googleSignInUseCase: sl.call()
+      )
+      );
+  /*sl.registerFactory<UserCubit>(() => UserCubit(
+        //getAllUsersUseCase: sl.call(),
+        //getUpdateUserUseCase: sl.call(),
+
+      ));*/
 
   sl.registerFactory<GroupCubit>(() => GroupCubit(
         getAllGroupsUseCase: sl.call(),
@@ -62,10 +65,10 @@ Future<void> init() async {
       ));
 
   //UseCases
-  sl.registerLazySingleton<GoogleSignInUseCase>(
+  /*sl.registerLazySingleton<GoogleSignInUseCase>(
       () => GoogleSignInUseCase(repository: sl.call()));
   sl.registerLazySingleton<GetCreateCurrentUserUseCase>(
-      () => GetCreateCurrentUserUseCase(repository: sl.call()));
+      () => GetCreateCurrentUserUseCase(repository: sl.call()));*/
   sl.registerLazySingleton<GetCurrentUIDUseCase>(
       () => GetCurrentUIDUseCase(repository: sl.call()));
   sl.registerLazySingleton<IsSignInUseCase>(
@@ -76,10 +79,10 @@ Future<void> init() async {
       () => SignUpUseCase(repository: sl.call()));
   sl.registerLazySingleton<SignOutUseCase>(
       () => SignOutUseCase(repository: sl.call()));
-  sl.registerLazySingleton<GetAllUsersUseCase>(
+  /*sl.registerLazySingleton<GetAllUsersUseCase>(
       () => GetAllUsersUseCase(repository: sl.call()));
   sl.registerLazySingleton<GetUpdateUserUseCase>(
-      () => GetUpdateUserUseCase(repository: sl.call()));
+      () => GetUpdateUserUseCase(repository: sl.call()));*/
   sl.registerLazySingleton<GetCreateGroupUseCase>(
       () => GetCreateGroupUseCase(repository: sl.call()));
   sl.registerLazySingleton<GetAllGroupsUseCase>(

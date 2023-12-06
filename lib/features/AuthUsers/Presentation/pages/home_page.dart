@@ -12,9 +12,9 @@ import 'package:proyecto_c2/features/Chats/Presentation/cubit/group/group_cubit.
 import 'package:proyecto_c2/features/Chats/Presentation/pages/groups_page.dart';
 
 class HomePage extends StatefulWidget {
-  final String uid;
+  final int id;
 
-  const HomePage({Key? key, required this.uid}) : super(key: key);
+  const HomePage({Key? key, required this.id}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -25,17 +25,17 @@ class _HomePageState extends State<HomePage> {
   PageController _pageController = PageController(initialPage: 0);
 
   List<Widget> get pages => [
-        GroupsPage(
+        /*GroupsPage(
           uid: widget.uid,
           query: _searchTextController.text,
-        ),
-        AllUsersPage(
+        ),*/
+       /* AllUsersPage(
           uid: widget.uid,
           query: _searchTextController.text,
-        ),
-        ProfilePage(
+        ),*/
+        /*ProfilePage(
           uid: widget.uid,
-        )
+        )*/
       ];
 
   int _currentPageIndex = 0;
@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<UserCubit>(context).getUsers();
+    //BlocProvider.of<UserCubit>(context).getUsers();
     BlocProvider.of<GroupCubit>(context).getGroups();
     _searchTextController.addListener(() {
       setState(() {});

@@ -1,38 +1,36 @@
 import 'package:equatable/equatable.dart';
 
 class UserEntity extends Equatable {
-  final String name;
+  final int id;
   final String email;
-  final String phoneNumber;
-  final bool isOnline;
-  final String uid;
-  final String status;
   final String password;
-  final String dob;
-  final String gender;
+  final bool isOnline;
+  final String status;
 
   UserEntity({
-    this.name = "",
-    this.email = "",
-    this.phoneNumber = "",
+    required this.id,
+    required this.email,
+    required this.password,
     this.isOnline = false,
-    this.uid = "",
-    this.status = "Hello there i'm using this app",
-    this.password = "",
-    this.dob = "",
-    this.gender = "",
+    this.status = "",
   });
+
+  factory UserEntity.fromJson(dynamic json) {
+    return UserEntity(id: json['id'], email: json['email'], password: json['password'], status: json['status_delet']);
+  
+  }
+
+  @override
+  String toString() {
+    return "User('id': $id, 'email': $email, 'password': $password, 'status': $status, 'isOnline': $isOnline)";
+  }
 
   @override
   List<Object> get props => [
-        name,
+        id,
         email,
-        phoneNumber,
         isOnline,
-        uid,
         status,
         password,
-        dob,
-        gender,
       ];
 }
