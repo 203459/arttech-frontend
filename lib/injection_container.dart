@@ -2,8 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:proyecto_c2/features/AuthUsers/Data/datasources/firebase_remote_data_source.dart';
-import 'package:proyecto_c2/features/AuthUsers/Data/datasources/firebase_remote_data_source_impl.dart';
+import 'package:proyecto_c2/features/AuthUsers/Data/datasources/user_remote_data_source.dart';
+import 'package:proyecto_c2/features/AuthUsers/Data/datasources/user_remote_data_source_impl.dart';
+//import 'package:proyecto_c2/features/AuthUsers/Data/datasources/firebase_remote_data_source_impl.dart';
 import 'package:proyecto_c2/features/AuthUsers/Data/repositories/firebase_repository_impl.dart';
 import 'package:proyecto_c2/features/AuthUsers/Domain/repositories/firebase_repository.dart';
 import 'package:proyecto_c2/features/AuthUsers/Domain/use_cases/get_all_users_usecase.dart';
@@ -109,8 +110,8 @@ Future<void> init() async {
       () => AuthFirebaseRepositoryImpl(remoteDataSource: sl.call()));
 
   //Remote DataSource
-  sl.registerLazySingleton<AuthFirebaseRemoteDataSource>(
-      () => AuthFirebaseRemoteDataSourceImpl(sl.call(), sl.call(), sl.call()));
+  sl.registerLazySingleton<AuthUserRemoteDataSource>(
+      () => AuthUserRemoteDataSourceImpl(sl.call()));
 
   //External
   final auth = FirebaseAuth.instance;
