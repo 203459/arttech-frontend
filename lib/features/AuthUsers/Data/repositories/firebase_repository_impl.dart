@@ -1,10 +1,10 @@
-import 'package:proyecto_c2/features/AuthUsers/Data/datasources/user_remote_data_source.dart';
+import 'package:proyecto_c2/features/AuthUsers/Data/datasources/firebase_remote_data_source.dart';
 import 'package:proyecto_c2/features/AuthUsers/Data/models/user.dart';
 import 'package:proyecto_c2/features/AuthUsers/Domain/entities/user_entity.dart';
 import 'package:proyecto_c2/features/AuthUsers/Domain/repositories/firebase_repository.dart';
 
 class AuthFirebaseRepositoryImpl implements AuthFirebaseRepository {
-  final AuthUserRemoteDataSource remoteDataSource;
+  final AuthFirebaseRemoteDataSource remoteDataSource;
 
   AuthFirebaseRepositoryImpl({required this.remoteDataSource});
 

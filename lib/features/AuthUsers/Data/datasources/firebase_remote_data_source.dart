@@ -1,7 +1,7 @@
 
 import '../../Domain/entities/user_entity.dart';
 
-abstract class AuthUserRemoteDataSource {
+abstract class AuthFirebaseRemoteDataSource {
   //Future<void> getCreateCurrentUser(UserEntity user);
 
   Future<int> signIn(UserEntity user);
@@ -10,6 +10,8 @@ abstract class AuthUserRemoteDataSource {
   
 
   Future<void> getUpdateUser(UserEntity user);
+
+  //Future<void> googleAuth();
 
   Future<bool> isSignIn();
 

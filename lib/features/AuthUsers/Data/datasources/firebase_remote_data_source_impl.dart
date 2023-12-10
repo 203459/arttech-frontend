@@ -1,27 +1,42 @@
 import 'dart:async';
 import 'dart:convert';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:flutter/foundation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:proyecto_c2/constants/api_constants.dart';
 import 'package:proyecto_c2/features/AuthUsers/Domain/entities/user_entity.dart';
 import 'package:proyecto_c2/utils/http_helper.dart';
-import '../models/user.dart';
-import 'user_remote_data_source.dart';
 
-class AuthUserRemoteDataSourceImpl implements AuthUserRemoteDataSource {
+import '../models/user.dart';
+import 'firebase_remote_data_source.dart';
+
+class AuthFirebaseRemoteDataSourceImpl implements AuthFirebaseRemoteDataSource {
+  final FirebaseFirestore fireStore;
+  final firebase_auth.FirebaseAuth auth;
+  final GoogleSignIn googleSignIn;
   final FlutterSecureStorage secureStorage = FlutterSecureStorage();
 
 
   String _verificationId = "";
 
-  AuthUserRemoteDataSourceImpl(FlutterSecureStorage);
+  AuthFirebaseRemoteDataSourceImpl(
+      this.fireStore, this.auth, this.googleSignIn);
 
   @override
   Future<bool> isSignIn() async =>
+      //TODO: Reemplazar por el valor almacenado en el flutter secure storage
+      //mandar a llamar a getUserId()
+      // localStorage.getUserId() != -1
+      //auth.currentUser?.uid != null;
       await secureStorage.read(key: 'token') != null;
 
   @override
   Future<int> getCurrentUId() async =>
+      //TODO: Reemplazar por el valor almacenado en el flutter secure storage
+      //1.- crear un metodo getUserId (localStorage.getUserId())
       int.tryParse(await secureStorage.read(key: 'userId') ?? '') ?? -1;
 
   @override
@@ -72,9 +87,13 @@ class AuthUserRemoteDataSourceImpl implements AuthUserRemoteDataSource {
 
   @override
   Future<void> signOut() async {
-    
-    await secureStorage.deleteAll();
+    //TODO: Crear metodo en la clase donde se usa flutter secure storage para eliminar las keys guardadas
+    //1.- localStorage.delete() => esta funcion deberia eliminar todas las keys
+    //flutterSecureStorage = FlutterSecureStorage()
+    //flutterSecureStorage.clearAllKeys();
     //await auth.signOut();
+    await secureStorage.deleteAll();
+    await auth.signOut();
   }
 
   @override

@@ -9,6 +9,6 @@ class ApiConstants {
   static String getUser = 'user/';
   static String deletUser = 'user/';
   static String putUser = 'user/password/';
-  static String putUserDelet = 'user/validate_delete/';
+  static String putUserDelet = 'user/validate_delet/';
 
 }
